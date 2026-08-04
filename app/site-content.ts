@@ -181,11 +181,6 @@ export const estimatePage = {
 };
 
 export const serviceAreasPage = {
-  stats: [
-    { value: "30 mi", label: "Free estimate radius" },
-    { value: "4", label: "Crews running daily" },
-    { value: "7 yrs", label: "In this valley" },
-  ],
   /** `tier` drives the proximity legend dot. */
   cities: [
     {

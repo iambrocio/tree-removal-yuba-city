@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   ...canonical("/service-areas"),
   title: `Service Areas | ${business.name}`,
   description:
-    "Tree service across Yuba and Sutter County — Yuba City, Marysville, Linda, Olivehurst, Live Oak, Plumas Lake, Wheatland, and Gridley. Free estimates within 30 miles.",
+    "Tree service across Yuba and Sutter County — Yuba City, Marysville, Linda, Olivehurst, Live Oak, Plumas Lake, Wheatland, and Gridley. Free estimates.",
 };
 
 export default function ServiceAreasPage() {
@@ -27,7 +27,6 @@ export default function ServiceAreasPage() {
 
       <main className="flex-1">
         <Hero />
-        <CoverageCheck />
         <PrimaryCoverage />
         <AlsoCovered />
         <LocalKnowledge />
@@ -54,14 +53,14 @@ function Hero() {
         <span className="text-ink">Service Areas</span>
       </nav>
 
-      <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
+      <div>
         <div>
           <h1 className="mb-4 max-w-[780px] text-[38px] leading-[1.04] font-bold tracking-[-0.038em] text-balance text-ink sm:text-[48px] lg:text-[60px] lg:leading-[1.02]">
-            Where we work, city by city
+            Serving Yuba &amp; Sutter Counties and Surrounding Areas
           </h1>
           <p className="mb-7 max-w-[560px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px]">
-            Serving Yuba City and surrounding areas. Free estimates anywhere
-            inside the 30-mile ring, across Yuba and Sutter County.
+            Crews and equipment based in Yuba City. Free estimates across Yuba
+            and Sutter County and the towns around them.
           </p>
 
           <div className="mb-6 flex flex-col gap-3 sm:flex-row">
@@ -100,73 +99,7 @@ function Hero() {
           </ul>
         </div>
 
-        <div className="grid shrink-0 grid-cols-2 gap-3.5 sm:grid-cols-3">
-          {serviceAreasPage.stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-[20px] bg-sand px-7 py-6 sm:min-w-[150px]"
-            >
-              <div className="text-[30px] font-bold tracking-[-0.03em] text-ink sm:text-[34px]">
-                {stat.value}
-              </div>
-              <div className="mt-1 text-[13.5px] text-moss-light">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
-    </section>
-  );
-}
-
-function CoverageCheck() {
-  const fieldClass =
-    "w-full min-w-0 rounded-xl bg-cream px-4 py-3 text-[14.5px] text-ink placeholder:text-muted focus:outline-2 focus:outline-offset-2 focus:outline-forest";
-
-  return (
-    <section className={`${GUTTER} pb-18`}>
-      {/* TODO: wire to a coverage-lookup endpoint — this form does not submit anywhere yet. */}
-      <form className="grid items-center gap-3.5 rounded-[22px] bg-sand p-5 sm:p-[26px] lg:grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.9fr)_auto]">
-        <div className="lg:pr-2">
-          <div className="text-[17px] font-bold tracking-[-0.02em] text-ink">
-            Check coverage for your address
-          </div>
-          <div className="text-[13px] text-moss-light">
-            We&apos;ll confirm the crew and a window, free.
-          </div>
-        </div>
-        <input
-          name="address"
-          type="text"
-          aria-label="Street address"
-          autoComplete="street-address"
-          placeholder="Street address"
-          className={fieldClass}
-        />
-        <input
-          name="city"
-          type="text"
-          aria-label="City or ZIP"
-          autoComplete="postal-code"
-          placeholder="City or ZIP"
-          className={fieldClass}
-        />
-        <input
-          name="phone"
-          type="tel"
-          aria-label="Phone number"
-          autoComplete="tel"
-          placeholder="Phone"
-          className={fieldClass}
-        />
-        <button
-          type="submit"
-          className="whitespace-nowrap rounded-full bg-gold px-7 py-3.5 text-[15px] font-bold text-[#241d0c] hover:bg-gold-dark"
-        >
-          Check my address
-        </button>
-      </form>
     </section>
   );
 }
@@ -239,8 +172,8 @@ function AlsoCovered() {
             Smaller towns and unincorporated county
           </h2>
           <p className="mb-6 max-w-[560px] text-[16px] leading-[1.64] text-moss">
-            Same crews, same pricing. Estimates outside the 30-mile ring are
-            still free, we just batch them with other work in that direction.
+            Same crews, same pricing. Estimates farther out are still free, we
+            just batch them with other work in that direction.
           </p>
           <ul className="flex flex-wrap gap-2.5">
             {serviceAreasPage.alsoCovered.map((place) => (
@@ -262,8 +195,8 @@ function AlsoCovered() {
             Call and ask. We travel for the right job.
           </h3>
           <p className="mb-5.5 text-[15px] leading-[1.6] text-[#b8c7ae]">
-            Large removals and multi-tree contracts pull us well past the usual
-            radius. One call tells you either way.
+            Large removals and multi-tree contracts pull us well past our usual
+            territory. One call tells you either way.
           </p>
           <a
             href={business.phoneHref}

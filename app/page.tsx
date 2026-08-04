@@ -6,6 +6,7 @@ import stormDamagePhoto from "../public/1.png";
 import bucketTruckPhoto from "../public/3.png";
 import trimmingPhoto from "../public/7.png";
 import stumpGrindingPhoto from "../public/stump-grinding.png";
+import serviceAreaMap from "../public/service-area-map.png";
 import { ImagePlaceholder } from "./components/image-placeholder";
 import { SiteFooter } from "./components/site-footer";
 import { canonical } from "./seo";
@@ -297,8 +298,8 @@ function ServiceAreas() {
             Serving Yuba City and Surrounding Areas
           </h2>
           <p className="mb-6 text-[16px] leading-[1.64] text-moss">
-            Free estimates within 30 miles. We cover Yuba and Sutter County and
-            the towns around them.
+            Free estimates across Yuba and Sutter County and the towns around
+            them.
           </p>
           <div className="flex flex-wrap gap-2">
             {serviceAreas.map((area) => (
@@ -317,8 +318,14 @@ function ServiceAreas() {
             See all service areas →
           </Link>
         </div>
-        <div className="h-[260px] overflow-hidden rounded-[20px] lg:h-[340px]">
-          <ImagePlaceholder label="Service area map — Yuba & Sutter County" />
+        <div className="relative h-[260px] overflow-hidden rounded-[20px] bg-cream lg:h-[340px]">
+          <Image
+            src={serviceAreaMap}
+            alt="Map of the service area around Yuba City, covering Yuba, Sutter, and neighboring counties"
+            fill
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            className="object-contain"
+          />
         </div>
       </div>
     </section>
