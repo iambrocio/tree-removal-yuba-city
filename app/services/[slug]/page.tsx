@@ -40,7 +40,6 @@ export default async function ServicePageRoute({ params }: PageProps) {
       <SiteHeader
         bannerPrefix={service.bannerPrefix}
         bannerSuffix=", answered 24/7."
-        pulseBanner
         activeLabel="Services"
       />
 
@@ -360,7 +359,7 @@ function FinalCta({ service }: { service: ServicePage }) {
   );
 }
 
-function TrustIcon({ icon }: { icon: "shield" | "clock" | "stars" }) {
+function TrustIcon({ icon }: { icon: "shield" | "clock" | "badge" | "stars" }) {
   if (icon === "stars") {
     return <span className="text-[13px] tracking-[1px] text-gold">★★★★★</span>;
   }
@@ -381,6 +380,11 @@ function TrustIcon({ icon }: { icon: "shield" | "clock" | "stars" }) {
         <>
           <path d="M12 3l7 3v6c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6l7-3z" />
           <path d="M9.2 12.2l2 2 3.6-3.8" />
+        </>
+      ) : icon === "badge" ? (
+        <>
+          <circle cx="12" cy="9" r="5" />
+          <path d="M8.4 13.3L7 21l5-2.4L17 21l-1.4-7.7" />
         </>
       ) : (
         <>

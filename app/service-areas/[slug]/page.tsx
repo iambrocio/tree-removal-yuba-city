@@ -43,7 +43,6 @@ export default async function AreaPageRoute({ params }: PageProps) {
       <SiteHeader
         bannerPrefix={area.bannerPrefix}
         bannerSuffix=", answered 24/7."
-        pulseBanner
         activeLabel="Service Areas"
       />
 
@@ -122,7 +121,7 @@ function Hero({ area }: { area: AreaPage }) {
             </li>
             <li className="flex items-center gap-2">
               <BadgeIcon />
-              ISA Certified
+              Locally owned
             </li>
             <li className="flex items-center gap-2">
               <span className="text-[13px] tracking-[1px] text-gold">★★★★★</span>

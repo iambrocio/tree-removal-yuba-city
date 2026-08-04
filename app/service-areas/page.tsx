@@ -20,9 +20,8 @@ export default function ServiceAreasPage() {
   return (
     <div className="flex flex-1 flex-col bg-cream">
       <SiteHeader
-        bannerPrefix="Storm crews are staged in Yuba City and Marysville right now — call"
+        bannerPrefix="Storm damage or a hazardous tree? Call"
         bannerSuffix=", answered 24/7."
-        pulseBanner
         activeLabel="Service Areas"
       />
 
@@ -58,12 +57,11 @@ function Hero() {
       <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
         <div>
           <h1 className="mb-4 max-w-[780px] text-[38px] leading-[1.04] font-bold tracking-[-0.038em] text-balance text-ink sm:text-[48px] lg:text-[60px] lg:leading-[1.02]">
-            Where we work, and how fast we get there
+            Where we work, city by city
           </h1>
           <p className="mb-7 max-w-[560px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px]">
-            Yards, trucks, and crews based in Yuba City. Free estimates anywhere
-            inside the 30-mile ring, and emergency dispatch across Yuba and
-            Sutter County.
+            Serving Yuba City and surrounding areas. Free estimates anywhere
+            inside the 30-mile ring, across Yuba and Sutter County.
           </p>
 
           <div className="mb-6 flex flex-col gap-3 sm:flex-row">
@@ -92,12 +90,12 @@ function Hero() {
               22 cities covered
             </li>
             <li className="flex items-center gap-2">
-              <ClockIcon />
-              Under 1 hr storm response
+              <BadgeIcon />
+              Locally owned
             </li>
             <li className="flex items-center gap-2">
               <span className="text-[13px] tracking-[1px] text-gold">★★★★★</span>
-              4.9 · 214 reviews
+              5.0 star reviews
             </li>
           </ul>
         </div>
@@ -188,11 +186,11 @@ function PrimaryCoverage() {
         <div className="flex gap-4.5 text-[13px] text-moss">
           <span className="inline-flex items-center gap-2">
             <span className="h-[9px] w-[9px] rounded-full bg-gold" />
-            Under 30 min
+            Close to home base
           </span>
           <span className="inline-flex items-center gap-2">
             <span className="h-[9px] w-[9px] rounded-full bg-sage-deep" />
-            30 – 60 min
+            Wider service area
           </span>
         </div>
       </div>
@@ -264,8 +262,8 @@ function AlsoCovered() {
             Call and ask. We travel for the right job.
           </h3>
           <p className="mb-5.5 text-[15px] leading-[1.6] text-[#b8c7ae]">
-            Orchard removals, lot clearing, and multi-tree contracts pull us well
-            past the usual radius. One call tells you either way.
+            Large removals and multi-tree contracts pull us well past the usual
+            radius. One call tells you either way.
           </p>
           <a
             href={business.phoneHref}
@@ -410,7 +408,7 @@ function PinIcon() {
   );
 }
 
-function ClockIcon() {
+function BadgeIcon() {
   return (
     <svg
       width="17"
@@ -423,8 +421,8 @@ function ClockIcon() {
       strokeLinejoin="round"
       aria-hidden
     >
-      <circle cx="12" cy="12" r="8.5" />
-      <path d="M12 7.2V12l3 1.9" />
+      <circle cx="12" cy="9" r="5" />
+      <path d="M8.4 13.3L7 21l5-2.4L17 21l-1.4-7.7" />
     </svg>
   );
 }

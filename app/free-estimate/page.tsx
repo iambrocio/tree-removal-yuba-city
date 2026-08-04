@@ -20,7 +20,6 @@ export default function FreeEstimatePage() {
       <SiteHeader
         bannerPrefix="Storm damage or a tree on a structure? Don't fill this out — call"
         bannerSuffix=" now."
-        pulseBanner
       />
 
       <main

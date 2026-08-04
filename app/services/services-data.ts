@@ -17,7 +17,7 @@ export type ServicePage = {
   heroPhoto: string;
   /** Headline price band above the CTAs. Omit when ranges aren't confirmed. */
   priceBand?: { prefix: string; range: string; suffix: string };
-  trust: { icon: "shield" | "clock" | "stars"; label: string }[];
+  trust: { icon: "shield" | "clock" | "badge" | "stars"; label: string }[];
   triage: {
     eyebrow: string;
     heading: string;
@@ -60,8 +60,8 @@ export const servicePages: Record<string, ServicePage> = {
     },
     trust: [
       { icon: "shield", label: "Licensed & insured" },
-      { icon: "clock", label: "Under 1 hr storm response" },
-      { icon: "stars", label: "4.9 · 214 reviews" },
+      { icon: "badge", label: "Locally owned" },
+      { icon: "stars", label: "5.0 star reviews" },
     ],
     triage: {
       eyebrow: "When removal is the right call",
@@ -186,13 +186,13 @@ export const servicePages: Record<string, ServicePage> = {
     name: "Tree Trimming",
     title: "Tree trimming and pruning in Yuba City",
     intro:
-      "ANSI A300 structural pruning, crown thinning, deadwooding, and clearance from roofs and utility lines. Every cut is made to a growth point, so the tree closes the wound instead of responding with weak regrowth.",
+      "Structural pruning, crown thinning, deadwooding, and clearance from roofs and utility lines. Every cut is made to a growth point, so the tree closes the wound instead of responding with weak regrowth.",
     heroPhoto: "Hero photo — arborist pruning a mature canopy",
     // priceBand and pricing intentionally omitted — see the note in the summary.
     trust: [
       { icon: "shield", label: "Licensed & insured" },
-      { icon: "clock", label: "ANSI A300 standard" },
-      { icon: "stars", label: "4.9 · 214 reviews" },
+      { icon: "badge", label: "Locally owned" },
+      { icon: "stars", label: "5.0 star reviews" },
     ],
     triage: {
       eyebrow: "When to prune, and when not to",
@@ -222,7 +222,7 @@ export const servicePages: Record<string, ServicePage> = {
       heading: "Cuts made to the standard, not to the clock",
       items: [
         {
-          title: "ANSI A300 cuts",
+          title: "Proper cuts",
           body: "Every cut placed at the branch collar or a lateral that can take over — no stubs, no topping, no lion-tailing.",
         },
         {
@@ -316,7 +316,7 @@ export const servicePages: Record<string, ServicePage> = {
     trust: [
       { icon: "shield", label: "Licensed & insured" },
       { icon: "clock", label: "Most stumps done in a day" },
-      { icon: "stars", label: "4.9 · 214 reviews" },
+      { icon: "stars", label: "5.0 star reviews" },
     ],
     triage: {
       eyebrow: "How deep you actually need to go",

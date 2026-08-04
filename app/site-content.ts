@@ -3,13 +3,12 @@ export const business = {
   phone: "(530) 555-0142",
   phoneHref: "tel:+15305550142",
   license: "1043882",
-  tagline: "ISA Certified Arborist Services",
+  tagline: "Locally Owned Tree Care",
 };
 
-/** Layout toggles mirroring the design's `showEmergencyBar` / `showQuoteForm` props. */
+/** Layout toggles mirroring the design's `showEmergencyBar` prop. */
 export const layout = {
   showEmergencyBar: true,
-  showQuoteForm: true,
 };
 
 export type NavLink = { label: string; href: string };
@@ -30,18 +29,14 @@ export const headerNavLinks: NavLink[] = [
 export const trustCards = [
   {
     title: "Licensed & insured",
-    body: "C-61/D49, $2M liability, full workers' comp",
+    body: "Fully licensed and insured for every job",
   },
   {
-    title: "18 years local",
-    body: "Yuba & Sutter County since 2008",
-  },
-  {
-    title: "Free written estimates",
+    title: "Free no obligation estimates",
     body: "Fixed price before any work begins",
   },
   {
-    title: "24/7 emergency",
+    title: "Emergency tree removal",
     body: "Storm crews and insurance documentation",
   },
 ];
@@ -61,7 +56,7 @@ export const services: {
   {
     number: "02",
     title: "Trimming & Pruning",
-    body: "ANSI A300 structural pruning, crown thinning, deadwooding, and clearance from roofs and utility lines.",
+    body: "Structural pruning, crown thinning, deadwooding, and clearance from roofs and utility lines.",
     href: "/services/tree-trimming",
   },
   {
@@ -75,23 +70,13 @@ export const services: {
     title: "Emergency Storm Response",
     body: "On call around the clock for wind-thrown trees and limbs on structures, with full insurance documentation.",
   },
-  {
-    number: "05",
-    title: "Lot & Land Clearing",
-    body: "Orchard removal, fuel-load reduction, defensible space, and site prep for builders and ag operations.",
-  },
-  {
-    number: "06",
-    title: "Arborist Consulting",
-    body: "Risk assessments, pre-purchase inspections, and written reports for permits, HOA boards, and insurers.",
-  },
 ];
 
 export const stats = [
-  { value: "4,100+", label: "Trees safely removed" },
-  { value: "18 yrs", label: "Serving the valley" },
-  { value: "4.9★", label: "214 Google reviews" },
-  { value: "0", label: "Property claims filed" },
+  { value: "100s", label: "Trees safely removed" },
+  { value: "7 yrs", label: "Serving the valley" },
+  { value: "5.0★", label: "Google reviews" },
+  { value: "Fair", label: "Competitive pricing" },
 ];
 
 export const processSteps = [
@@ -149,7 +134,7 @@ export const faqs = [
   {
     question: "Are you licensed and insured?",
     answer:
-      "Yes — California C-61/D49 license, $2M general liability, and full workers' compensation. Certificates go straight to your HOA, property manager, or insurer on request.",
+      "Yes — fully licensed and insured, including workers' compensation. Certificates go straight to your HOA, property manager, or insurer on request.",
   },
   {
     question: "Will you clean up the debris and stump?",
@@ -174,7 +159,6 @@ export const estimatePage = {
     "Trimming & pruning",
     "Stump grinding",
     "Storm damage",
-    "Lot clearing",
     "Not sure",
   ],
   timingOptions: ["This week", "Next 30 days", "Just planning ahead"],
@@ -190,9 +174,9 @@ export const estimatePage = {
     author: "Dana R. — Plumas Lake",
   },
   credentials: [
-    "Licensed C-61/D49 & fully insured",
-    "ISA Certified Arborists on every crew",
-    "4.9 from 214 Google reviews",
+    "Licensed & fully insured",
+    "Locally owned and operated",
+    "5.0 star Google reviews",
   ],
 };
 
@@ -200,56 +184,56 @@ export const serviceAreasPage = {
   stats: [
     { value: "30 mi", label: "Free estimate radius" },
     { value: "4", label: "Crews running daily" },
-    { value: "18 yrs", label: "In this valley" },
+    { value: "7 yrs", label: "In this valley" },
   ],
-  /** `tier` drives the arrival-time legend dot. */
+  /** `tier` drives the proximity legend dot. */
   cities: [
     {
       name: "Yuba City",
       note: "Home base · 95991, 95993",
-      arrival: "Arrival 15 – 25 min",
+      arrival: "Our yard is here",
       tier: "fast" as const,
     },
     {
       name: "Marysville",
       note: "Across the Feather · 95901",
-      arrival: "Arrival 15 – 25 min",
+      arrival: "Just across the river",
       tier: "fast" as const,
     },
     {
       name: "Linda",
       note: "95901 · older valley oaks",
-      arrival: "Arrival 20 – 30 min",
+      arrival: "Close to home base",
       tier: "fast" as const,
     },
     {
       name: "Olivehurst",
       note: "95961 · large lots",
-      arrival: "Arrival 20 – 30 min",
+      arrival: "Close to home base",
       tier: "fast" as const,
     },
     {
       name: "Live Oak",
       note: "95953 · orchard removals",
-      arrival: "Arrival 25 – 35 min",
+      arrival: "Short drive north",
       tier: "standard" as const,
     },
     {
       name: "Plumas Lake",
       note: "95961 · newer subdivisions",
-      arrival: "Arrival 30 – 40 min",
+      arrival: "Short drive south",
       tier: "standard" as const,
     },
     {
       name: "Wheatland",
       note: "95692 · rural parcels",
-      arrival: "Arrival 35 – 50 min",
+      arrival: "Regular route stop",
       tier: "standard" as const,
     },
     {
       name: "Gridley",
       note: "95948 · walnut & almond",
-      arrival: "Arrival 35 – 50 min",
+      arrival: "Regular route stop",
       tier: "standard" as const,
     },
   ],
