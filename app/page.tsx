@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ownerPhoto from "../public/tree-boss-owner.webp";
-import stormDamagePhoto from "../public/1.png";
-import bucketTruckPhoto from "../public/3.png";
-import trimmingPhoto from "../public/7.png";
-import stumpGrindingPhoto from "../public/stump-grinding.png";
-import serviceAreaMap from "../public/service-area-map.png";
+import stormDamagePhoto from "../public/1.webp";
+import bucketTruckPhoto from "../public/3.webp";
+import trimmingPhoto from "../public/7.webp";
+import stumpGrindingPhoto from "../public/stump-grinding.webp";
+import serviceAreaMap from "../public/service-area-map.webp";
 import { ImagePlaceholder } from "./components/image-placeholder";
 import { SiteFooter } from "./components/site-footer";
 import { canonical } from "./seo";
@@ -98,7 +98,8 @@ function Hero() {
           src={ownerPhoto}
           alt="Tree Boss owner on site in Yuba City"
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
           sizes="(min-width: 1024px) 50vw, 100vw"
           className="object-cover"
         />
