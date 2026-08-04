@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canonical } from "../seo";
 import Link from "next/link";
 import { ImagePlaceholder } from "../components/image-placeholder";
 import { SiteFooter } from "../components/site-footer";
@@ -9,6 +10,7 @@ import { slugForCity } from "./areas-data";
 const GUTTER = "px-5 sm:px-8 lg:px-14";
 
 export const metadata: Metadata = {
+  ...canonical("/service-areas"),
   title: `Service Areas | ${business.name}`,
   description:
     "Tree service across Yuba and Sutter County — Yuba City, Marysville, Linda, Olivehurst, Live Oak, Plumas Lake, Wheatland, and Gridley. Free estimates within 30 miles.",

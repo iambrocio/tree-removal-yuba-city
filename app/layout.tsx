@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { siteUrl } from "./seo";
 import { business } from "./site-content";
 
 const spaceGrotesk = Space_Grotesk({
@@ -9,6 +10,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: `${business.name} | ISA Certified Arborists in Yuba & Sutter County`,
   description:
     "Tree removal, trimming, stump grinding, and 24/7 storm response across Yuba City and the valley. Licensed C-61/D49, fully insured, free written estimates.",
