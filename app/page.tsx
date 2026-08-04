@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ImagePlaceholder } from "./components/image-placeholder";
 import { SiteFooter } from "./components/site-footer";
+import { canonical } from "./seo";
 import { SiteHeader } from "./components/site-header";
 import {
   business,
@@ -14,6 +16,8 @@ import {
 } from "./site-content";
 
 const GUTTER = "px-5 sm:px-8 lg:px-14";
+
+export const metadata: Metadata = canonical("/");
 
 export default function Home() {
   return (

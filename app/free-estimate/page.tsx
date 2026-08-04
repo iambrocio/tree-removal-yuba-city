@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canonical } from "../seo";
 import { EstimateForm } from "../components/estimate-form";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
@@ -7,6 +8,7 @@ import { business, estimatePage } from "../site-content";
 const GUTTER = "px-5 sm:px-8 lg:px-14";
 
 export const metadata: Metadata = {
+  ...canonical("/free-estimate"),
   title: `Get a Free Estimate | ${business.name}`,
   description:
     "Request a free, no-obligation tree service estimate in Yuba City. A certified arborist reviews it and returns a written, fixed price the same day.",

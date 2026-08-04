@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canonical } from "../seo";
 import Link from "next/link";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
@@ -8,6 +9,7 @@ import { areaPages } from "../service-areas/areas-data";
 const GUTTER = "px-5 sm:px-8 lg:px-14";
 
 export const metadata: Metadata = {
+  ...canonical("/sitemap"),
   title: `Sitemap | ${business.name}`,
   description: `Every page on the ${business.name} site.`,
 };

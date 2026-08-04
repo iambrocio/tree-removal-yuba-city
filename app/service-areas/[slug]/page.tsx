@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ImagePlaceholder } from "../../components/image-placeholder";
 import { SiteFooter } from "../../components/site-footer";
 import { SiteHeader } from "../../components/site-header";
+import { canonical } from "../../seo";
 import { business } from "../../site-content";
 import { servicePages } from "../../services/services-data";
 import { areaPages, slugForCity, type AreaPage } from "../areas-data";
@@ -26,6 +27,7 @@ export async function generateMetadata({
   if (!area) return {};
 
   return {
+    ...canonical(`/service-areas/${slug}`),
     title: `Tree Removal in ${area.city}, ${area.state} | ${business.name}`,
     description: area.intro,
   };
