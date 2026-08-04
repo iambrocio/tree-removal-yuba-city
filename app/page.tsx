@@ -54,7 +54,7 @@ function Hero() {
         </div>
 
         <h1 className="mb-5 text-[38px] leading-[1.04] font-bold tracking-[-0.038em] text-balance text-ink sm:text-[48px] lg:text-[62px] lg:leading-[1.02]">
-          Certified arborists for the trees you can&apos;t take down yourself
+          Tree Removal in Yuba City, CA
         </h1>
 
         <p className="mb-7 max-w-[500px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px]">
