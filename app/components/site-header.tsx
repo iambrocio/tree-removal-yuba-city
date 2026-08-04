@@ -9,7 +9,6 @@ type SiteHeaderProps = {
   bannerPrefix?: string;
   /** Copy shown after the phone number in the amber banner; include its own leading space. */
   bannerSuffix?: string;
-  pulseBanner?: boolean;
   links?: NavLink[];
   /** Where the logo points. */
   homeHref?: string;
@@ -18,9 +17,8 @@ type SiteHeaderProps = {
 };
 
 export function SiteHeader({
-  bannerPrefix = "Storm damage? 24/7 emergency crews are dispatching now — call",
+  bannerPrefix = "Storm damage or a hazardous tree? Call",
   bannerSuffix,
-  pulseBanner = false,
   links = headerNavLinks,
   homeHref = "/",
   activeLabel,
@@ -31,11 +29,7 @@ export function SiteHeader({
     <>
       {layout.showEmergencyBar && (
         <div className="flex items-center justify-center gap-3 bg-gold px-5 py-2.5 text-center text-[13.5px] font-medium text-[#241d0c] sm:px-8 lg:px-14">
-          <span
-            className={`hidden h-[7px] w-[7px] shrink-0 rounded-full bg-[#241d0c] sm:block ${
-              pulseBanner ? "animate-pulse-ring" : ""
-            }`}
-          />
+          <span className="hidden h-[7px] w-[7px] shrink-0 rounded-full bg-[#241d0c] sm:block" />
           <span>
             {bannerPrefix}{" "}
             <a

@@ -13,22 +13,20 @@ export const metadata: Metadata = {
   ...canonical("/service-areas"),
   title: `Service Areas | ${business.name}`,
   description:
-    "Tree service across Yuba and Sutter County — Yuba City, Marysville, Linda, Olivehurst, Live Oak, Plumas Lake, Wheatland, and Gridley. Free estimates within 30 miles.",
+    "Tree service across Yuba and Sutter County — Yuba City, Marysville, Linda, Olivehurst, Live Oak, Plumas Lake, Wheatland, and Gridley. Free estimates.",
 };
 
 export default function ServiceAreasPage() {
   return (
     <div className="flex flex-1 flex-col bg-cream">
       <SiteHeader
-        bannerPrefix="Storm crews are staged in Yuba City and Marysville right now — call"
+        bannerPrefix="Storm damage or a hazardous tree? Call"
         bannerSuffix=", answered 24/7."
-        pulseBanner
         activeLabel="Service Areas"
       />
 
       <main className="flex-1">
         <Hero />
-        <CoverageCheck />
         <PrimaryCoverage />
         <AlsoCovered />
         <LocalKnowledge />
@@ -55,15 +53,14 @@ function Hero() {
         <span className="text-ink">Service Areas</span>
       </nav>
 
-      <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
+      <div>
         <div>
           <h1 className="mb-4 max-w-[780px] text-[38px] leading-[1.04] font-bold tracking-[-0.038em] text-balance text-ink sm:text-[48px] lg:text-[60px] lg:leading-[1.02]">
-            Where we work, and how fast we get there
+            Serving Yuba &amp; Sutter Counties and Surrounding Areas
           </h1>
           <p className="mb-7 max-w-[560px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px]">
-            Yards, trucks, and crews based in Yuba City. Free estimates anywhere
-            inside the 30-mile ring, and emergency dispatch across Yuba and
-            Sutter County.
+            Crews and equipment based in Yuba City. Free estimates across Yuba
+            and Sutter County and the towns around them.
           </p>
 
           <div className="mb-6 flex flex-col gap-3 sm:flex-row">
@@ -92,83 +89,17 @@ function Hero() {
               22 cities covered
             </li>
             <li className="flex items-center gap-2">
-              <ClockIcon />
-              Under 1 hr storm response
+              <BadgeIcon />
+              Locally owned
             </li>
             <li className="flex items-center gap-2">
               <span className="text-[13px] tracking-[1px] text-gold">★★★★★</span>
-              4.9 · 214 reviews
+              5.0 star reviews
             </li>
           </ul>
         </div>
 
-        <div className="grid shrink-0 grid-cols-2 gap-3.5 sm:grid-cols-3">
-          {serviceAreasPage.stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-[20px] bg-sand px-7 py-6 sm:min-w-[150px]"
-            >
-              <div className="text-[30px] font-bold tracking-[-0.03em] text-ink sm:text-[34px]">
-                {stat.value}
-              </div>
-              <div className="mt-1 text-[13.5px] text-moss-light">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
-    </section>
-  );
-}
-
-function CoverageCheck() {
-  const fieldClass =
-    "w-full min-w-0 rounded-xl bg-cream px-4 py-3 text-[14.5px] text-ink placeholder:text-muted focus:outline-2 focus:outline-offset-2 focus:outline-forest";
-
-  return (
-    <section className={`${GUTTER} pb-18`}>
-      {/* TODO: wire to a coverage-lookup endpoint — this form does not submit anywhere yet. */}
-      <form className="grid items-center gap-3.5 rounded-[22px] bg-sand p-5 sm:p-[26px] lg:grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.9fr)_auto]">
-        <div className="lg:pr-2">
-          <div className="text-[17px] font-bold tracking-[-0.02em] text-ink">
-            Check coverage for your address
-          </div>
-          <div className="text-[13px] text-moss-light">
-            We&apos;ll confirm the crew and a window, free.
-          </div>
-        </div>
-        <input
-          name="address"
-          type="text"
-          aria-label="Street address"
-          autoComplete="street-address"
-          placeholder="Street address"
-          className={fieldClass}
-        />
-        <input
-          name="city"
-          type="text"
-          aria-label="City or ZIP"
-          autoComplete="postal-code"
-          placeholder="City or ZIP"
-          className={fieldClass}
-        />
-        <input
-          name="phone"
-          type="tel"
-          aria-label="Phone number"
-          autoComplete="tel"
-          placeholder="Phone"
-          className={fieldClass}
-        />
-        <button
-          type="submit"
-          className="whitespace-nowrap rounded-full bg-gold px-7 py-3.5 text-[15px] font-bold text-[#241d0c] hover:bg-gold-dark"
-        >
-          Check my address
-        </button>
-      </form>
     </section>
   );
 }
@@ -188,11 +119,11 @@ function PrimaryCoverage() {
         <div className="flex gap-4.5 text-[13px] text-moss">
           <span className="inline-flex items-center gap-2">
             <span className="h-[9px] w-[9px] rounded-full bg-gold" />
-            Under 30 min
+            Close to home base
           </span>
           <span className="inline-flex items-center gap-2">
             <span className="h-[9px] w-[9px] rounded-full bg-sage-deep" />
-            30 – 60 min
+            Wider service area
           </span>
         </div>
       </div>
@@ -241,8 +172,8 @@ function AlsoCovered() {
             Smaller towns and unincorporated county
           </h2>
           <p className="mb-6 max-w-[560px] text-[16px] leading-[1.64] text-moss">
-            Same crews, same pricing. Estimates outside the 30-mile ring are
-            still free, we just batch them with other work in that direction.
+            Same crews, same pricing. Estimates farther out are still free, we
+            just batch them with other work in that direction.
           </p>
           <ul className="flex flex-wrap gap-2.5">
             {serviceAreasPage.alsoCovered.map((place) => (
@@ -264,8 +195,8 @@ function AlsoCovered() {
             Call and ask. We travel for the right job.
           </h3>
           <p className="mb-5.5 text-[15px] leading-[1.6] text-[#b8c7ae]">
-            Orchard removals, lot clearing, and multi-tree contracts pull us well
-            past the usual radius. One call tells you either way.
+            Large removals and multi-tree contracts pull us well past our usual
+            territory. One call tells you either way.
           </p>
           <a
             href={business.phoneHref}
@@ -297,9 +228,9 @@ function LocalKnowledge() {
             We know what grows here and how it fails
           </h2>
           <p className="mb-7 text-[16.5px] leading-[1.66] text-pretty text-sage-pale sm:text-[17.5px]">
-            Eighteen years in the same valley means we&apos;ve seen the same
-            species fail the same ways. That shows up in faster diagnosis and
-            fewer surprises on the invoice.
+            Working the same valley year after year means we&apos;ve seen the
+            same species fail the same ways. That shows up in faster diagnosis
+            and fewer surprises on the invoice.
           </p>
           <ul className="flex flex-col gap-4.5">
             {serviceAreasPage.localKnowledge.map((item) => (
@@ -410,7 +341,7 @@ function PinIcon() {
   );
 }
 
-function ClockIcon() {
+function BadgeIcon() {
   return (
     <svg
       width="17"
@@ -423,8 +354,8 @@ function ClockIcon() {
       strokeLinejoin="round"
       aria-hidden
     >
-      <circle cx="12" cy="12" r="8.5" />
-      <path d="M12 7.2V12l3 1.9" />
+      <circle cx="12" cy="9" r="5" />
+      <path d="M8.4 13.3L7 21l5-2.4L17 21l-1.4-7.7" />
     </svg>
   );
 }

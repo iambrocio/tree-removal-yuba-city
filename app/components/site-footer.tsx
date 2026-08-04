@@ -50,8 +50,8 @@ export function SiteFooter() {
           </Link>
 
           <p className="mb-5.5 max-w-[300px] text-[14.5px] leading-[1.66]">
-            ISA Certified Arborists serving Yuba and Sutter County since 2008.
-            Licensed C-61/D49, fully insured.
+            Locally owned, serving Yuba and Sutter County since 2019. Licensed
+            and fully insured.
           </p>
 
           <a

@@ -63,14 +63,14 @@ export const areaPages: Record<string, AreaPage> = {
     city: "Marysville",
     state: "CA",
     zip: "95901",
-    bannerPrefix: "Tree down in Marysville? Crews are 15 minutes out — call",
-    responseBadge: "Under 30 min response · 95901",
+    bannerPrefix: "Tree down in Marysville? Call",
+    responseBadge: "Serving Marysville · 95901",
     intro:
-      "We're across the Feather River, fifteen minutes from downtown. Certified arborists for hazard removals, storm damage, and the mature valley oaks and cottonwoods that dominate older Marysville lots.",
-    reviewNote: "4.9 · 38 Marysville reviews",
+      "We're just across the Feather River from downtown. Certified arborists for hazard removals, storm damage, and the mature valley oaks and cottonwoods that dominate older Marysville lots.",
+    reviewNote: "5.0 star reviews",
     heroPhoto: "Marysville job photo — crew working a mature tree",
     stats: [
-      { value: "15 min", label: "From our yard" },
+      { value: "Local", label: "Crews from our yard" },
       { value: "340+", label: "Marysville jobs" },
       { value: "$650+", label: "Typical, fixed" },
     ],
@@ -118,14 +118,6 @@ export const areaPages: Record<string, AreaPage> = {
       {
         title: "Emergency storm response",
         body: "24/7 dispatch for trees on structures, with full documentation for your claim.",
-      },
-      {
-        title: "Lot clearing",
-        body: "Brush and fuel-load reduction on levee-adjacent and infill parcels.",
-      },
-      {
-        title: "Arborist reports",
-        body: "Written risk assessments for city permits, HOA boards, and pre-purchase inspections.",
       },
     ],
     permits: {
