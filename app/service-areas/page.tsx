@@ -228,9 +228,9 @@ function LocalKnowledge() {
             We know what grows here and how it fails
           </h2>
           <p className="mb-7 text-[16.5px] leading-[1.66] text-pretty text-sage-pale sm:text-[17.5px]">
-            Eighteen years in the same valley means we&apos;ve seen the same
-            species fail the same ways. That shows up in faster diagnosis and
-            fewer surprises on the invoice.
+            Working the same valley year after year means we&apos;ve seen the
+            same species fail the same ways. That shows up in faster diagnosis
+            and fewer surprises on the invoice.
           </p>
           <ul className="flex flex-col gap-4.5">
             {serviceAreasPage.localKnowledge.map((item) => (
