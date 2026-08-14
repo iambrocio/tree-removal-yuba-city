@@ -1,7 +1,7 @@
 export const business = {
   name: "Tree Removal Yuba City",
-  phone: "(530) 555-0142",
-  phoneHref: "tel:+15305550142",
+  phone: "(530) 845-1134",
+  phoneHref: "tel:+15308451134",
   license: "1043882",
   tagline: "Locally Owned Tree Care",
 };
