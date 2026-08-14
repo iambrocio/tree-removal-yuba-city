@@ -9,7 +9,7 @@ const GUTTER = "px-5 sm:px-8 lg:px-14";
 
 export const metadata: Metadata = pageMeta(
   "/free-estimate",
-  `Get a Free Estimate | ${business.name}`,
+  `Free Same Day Estimate - ${business.name}`,
   "Request a free, no-obligation tree service estimate in Yuba City. A certified arborist reviews it and returns a written, fixed price the same day.",
 );
 
@@ -26,7 +26,7 @@ export default function FreeEstimatePage() {
       >
         <div>
           <h1 className="mb-3.5 max-w-[640px] text-[36px] leading-[1.04] font-bold tracking-[-0.035em] text-balance text-ink sm:text-[44px] lg:text-[52px]">
-            Get a free estimate
+            Get A Free Tree Service Estimate
           </h1>
           <p className="mb-5 max-w-[560px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18px]">
             Takes about two minutes. A certified arborist reviews it and gets

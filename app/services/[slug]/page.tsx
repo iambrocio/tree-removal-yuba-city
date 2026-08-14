@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   return pageMeta(
     `/services/${slug}`,
-    `${service.name} in Yuba City | ${business.name}`,
+    service.metaTitle ?? `${service.name} in Yuba City | ${business.name}`,
     service.intro,
   );
 }

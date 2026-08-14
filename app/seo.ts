@@ -20,7 +20,7 @@ export const siteUrl =
  * canonical pointing at the wrong origin (localhost, a preview URL) actively
  * misdirects crawlers, whereas omitting the tag is merely neutral.
  *
- * @param path Root-relative path, e.g. `/services/tree-removal`.
+ * @param path Root-relative path, e.g. `/services/tree-trimming`.
  */
 export function canonical(path: string): Pick<Metadata, "alternates"> {
   if (!siteUrl) return {};
