@@ -103,7 +103,6 @@ export const areaPages: Record<string, AreaPage> = {
       {
         title: "Tree removal",
         body: "Climbed and rigged takedowns for tight lots, over roofs, and near service drops.",
-        href: "/services/tree-removal",
       },
       {
         title: "Trimming & pruning",

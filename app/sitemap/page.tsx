@@ -10,7 +10,7 @@ const GUTTER = "px-5 sm:px-8 lg:px-14";
 
 export const metadata: Metadata = {
   ...canonical("/sitemap"),
-  title: `Sitemap | ${business.name}`,
+  title: "Sitemap",
   description: `Every page on the ${business.name} site.`,
 };
 

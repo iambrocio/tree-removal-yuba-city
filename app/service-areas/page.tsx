@@ -55,7 +55,7 @@ function Hero() {
       <div>
         <div>
           <h1 className="mb-4 max-w-[780px] text-[38px] leading-[1.04] font-bold tracking-[-0.038em] text-balance text-ink sm:text-[48px] lg:text-[60px] lg:leading-[1.02]">
-            Serving Yuba &amp; Sutter Counties and Surrounding Areas
+            Service Area
           </h1>
           <p className="mb-7 max-w-[560px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px]">
             Crews and equipment based in Yuba City. Free estimates across Yuba
@@ -133,7 +133,7 @@ function PrimaryCoverage() {
           return (
           <Link
             key={city.name}
-            href={slug ? `/service-areas/${slug}` : "/services/tree-removal"}
+            href={slug ? `/service-areas/${slug}` : "/free-estimate"}
             className="flex flex-col gap-2.5 rounded-[20px] bg-cream p-[26px] transition-colors hover:bg-sand"
           >
             <span className="flex items-center justify-between gap-3">

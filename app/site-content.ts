@@ -22,8 +22,20 @@ export type NavLink = { label: string; href: string };
  * single item; remove it if you'd rather match the design exactly.
  */
 export const headerNavLinks: NavLink[] = [
-  { label: "Services", href: "/services/tree-removal" },
+  { label: "Services", href: "/#services" },
   { label: "Service Areas", href: "/service-areas" },
+];
+
+/**
+ * Hero checkmarks. Each one has to be a promise the site already makes
+ * elsewhere — these sit above the fold, so they are the claims a customer is
+ * most likely to hold us to.
+ */
+export const heroProof = [
+  "Same-day estimates, most cases",
+  "Financing available",
+  "Licensed & insured",
+  "Locally owned",
 ];
 
 export const trustCards = [
@@ -41,6 +53,20 @@ export const trustCards = [
   },
 ];
 
+/**
+ * Removal price ranges, shown on the per-city service area pages.
+ *
+ * These lived on the `/services/tree-removal` page until it was retired for
+ * competing with the homepage; they are site-wide facts, not page copy, so
+ * they sit here rather than in one page's data.
+ */
+export const removalPricingRows = [
+  { label: "Small tree — under 30 ft", price: "$450 – $900" },
+  { label: "Medium tree — 30 to 60 ft", price: "$900 – $1,800" },
+  { label: "Large or crane-assisted — 60 ft+", price: "$1,800 – $4,500" },
+  { label: "Stump grinding add-on", price: "from $95" },
+];
+
 export const services: {
   number: string;
   title: string;
@@ -51,7 +77,8 @@ export const services: {
     number: "01",
     title: "Tree Removal",
     body: "Crane and rigging removals in tight lots, over roofs, and near power lines. Debris hauled, site left clean.",
-    href: "/services/tree-removal",
+    // No href: removals are covered by the homepage, which is why the
+    // dedicated page was retired.
   },
   {
     number: "02",

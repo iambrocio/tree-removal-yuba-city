@@ -14,6 +14,7 @@ import { SiteHeader } from "./components/site-header";
 import {
   business,
   faqs,
+  heroProof,
   processSteps,
   serviceAreas,
   services,
@@ -50,21 +51,49 @@ function Hero() {
     <section
       className={`${GUTTER} grid items-center gap-10 pb-6 pt-10 lg:grid-cols-[minmax(0,560px)_minmax(0,1fr)] lg:gap-14 lg:pt-12`}
     >
-      <div>
-        <h1 className="mb-5 text-[38px] leading-[1.04] font-bold tracking-[-0.038em] text-balance text-ink sm:text-[48px] lg:text-[62px] lg:leading-[1.02]">
+      {/* Centered until the hero splits into two columns at lg. */}
+      <div className="text-center lg:text-left">
+        {/* The h1 is the pill, not the big line below it: the title sheet
+            fixes this exact wording as the page's h1, while the display
+            headline carries the "Affordable" phrasing. Uppercase here is CSS,
+            so crawlers still read the sentence-case text. */}
+        <h1 className="mb-4 inline-flex items-center gap-2 rounded-full bg-sand px-3.5 py-1.5 text-[12px] uppercase tracking-[0.14em] text-forest">
+          <span className="h-1.5 w-1.5 rounded-full bg-gold" />
           Tree Removal in Yuba City, CA
         </h1>
 
-        <p className="mb-7 max-w-[500px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px]">
-          Removals, trimming, stump grinding, and storm response across Yuba City
-          and the valley. A licensed arborist assesses the tree before a saw
-          leaves the truck.
+        <h2 className="mb-5 text-[38px] leading-[1.04] font-bold tracking-[-0.038em] text-balance text-ink sm:text-[48px] lg:text-[62px] lg:leading-[1.02]">
+          Affordable Tree Removal - Same Day Estimates Available
+        </h2>
+
+        <p className="mx-auto mb-6 max-w-[500px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px] lg:mx-0">
+          Affordable tree removal in Yuba City, CA, plus trimming, stump
+          grinding, and 24/7 storm response across the valley. A licensed
+          arborist assesses the tree before any tree work begins.
         </p>
 
-        <div className="mb-7 flex flex-col gap-3 sm:flex-row">
+        <ul className="mb-7 flex flex-wrap justify-center gap-x-4 gap-y-2 text-[13.5px] text-[#3c4737] sm:gap-x-6 sm:text-[14.5px] lg:justify-start">
+          {heroProof.map((item) => (
+            <li key={item} className="flex items-center gap-2.5">
+              <CheckIcon />
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <div className="mb-6 inline-flex flex-wrap items-baseline justify-center gap-2.5 rounded-[14px] bg-sand px-4.5 py-3 lg:justify-start">
+          <span className="text-[13.5px] text-moss-light">
+            Most residential removals
+          </span>
+          <span className="text-[20px] font-bold tracking-[-0.02em] text-ink">
+            $650 – $3,500
+          </span>
+        </div>
+
+        <div className="flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
           <a
             href={business.phoneHref}
-            className="flex flex-col gap-px rounded-full bg-forest px-8 py-3.5 text-center text-cream hover:bg-ink sm:text-left"
+            className="flex flex-col gap-px rounded-full bg-forest px-8 py-3.5 text-center text-cream hover:bg-ink lg:text-left"
           >
             <span className="text-[11.5px] uppercase tracking-[0.1em] text-sage">
               Fastest answer
@@ -77,20 +106,9 @@ function Hero() {
             href="/free-estimate"
             className="flex items-center justify-center rounded-full border-[1.5px] border-line-strong bg-cream px-8 py-3.5 text-[16px] font-semibold text-ink hover:bg-sand"
           >
-            Free estimate
+            Get a free estimate
           </Link>
         </div>
-
-        <ul className="flex flex-wrap gap-x-6 gap-y-3 text-[13.5px] text-[#46523f]">
-          <li className="flex items-center gap-2">
-            <ShieldIcon />
-            Licensed &amp; insured
-          </li>
-          <li className="flex items-center gap-2">
-            <BadgeIcon />
-            Locally owned
-          </li>
-        </ul>
       </div>
 
       <div className="relative h-[340px] overflow-hidden rounded-[28px] sm:h-[440px] lg:h-[552px]">
@@ -390,40 +408,21 @@ function FinalCta() {
   );
 }
 
-function ShieldIcon() {
+function CheckIcon() {
   return (
     <svg
       width="17"
       height="17"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#33452f"
-      strokeWidth="1.7"
+      stroke="#c8912f"
+      strokeWidth="2.4"
       strokeLinecap="round"
       strokeLinejoin="round"
+      className="shrink-0"
       aria-hidden
     >
-      <path d="M12 3l7 3v6c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6l7-3z" />
-      <path d="M9.2 12.2l2 2 3.6-3.8" />
-    </svg>
-  );
-}
-
-function BadgeIcon() {
-  return (
-    <svg
-      width="17"
-      height="17"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#33452f"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <circle cx="12" cy="9" r="5" />
-      <path d="M8.4 13.3L7 21l5-2.4L17 21l-1.4-7.7" />
+      <path d="M4.5 12.5l5 5 10-11" />
     </svg>
   );
 }

@@ -5,13 +5,12 @@ import { ImagePlaceholder } from "../../components/image-placeholder";
 import { SiteFooter } from "../../components/site-footer";
 import { SiteHeader } from "../../components/site-header";
 import { pageMeta } from "../../seo";
-import { business } from "../../site-content";
-import { servicePages } from "../../services/services-data";
+import { business, removalPricingRows } from "../../site-content";
 import { areaPages, slugForCity, type AreaPage } from "../areas-data";
 
 const GUTTER = "px-5 sm:px-8 lg:px-14";
 
-const removalPricing = servicePages["tree-removal"].pricing!.rows;
+const removalPricing = removalPricingRows;
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -28,7 +27,7 @@ export async function generateMetadata({
 
   return pageMeta(
     `/service-areas/${slug}`,
-    `Tree Removal in ${area.city}, ${area.state} | ${business.name}`,
+    `Tree Removal in ${area.city}, ${area.state} - Free Estimates`,
     area.intro,
   );
 }
@@ -88,7 +87,7 @@ function Hero({ area }: { area: AreaPage }) {
           </div>
 
           <h1 className="mb-4 text-[36px] leading-[1.04] font-bold tracking-[-0.038em] text-balance text-ink sm:text-[46px] lg:text-[56px] lg:leading-[1.02]">
-            Tree removal in {area.city}, {area.state}
+            Tree Removal in {area.city}, {area.state}
           </h1>
           <p className="mb-7 max-w-[520px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18px]">
             {area.intro}

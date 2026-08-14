@@ -12,7 +12,13 @@ export type ServiceBullet = { dot: string; label: string; body: string };
 export type ServicePage = {
   /** Breadcrumb leaf and nav label. */
   name: string;
+  /** The page h1. */
   title: string;
+  /**
+   * `<title>` when it should differ from the default
+   * `<name> in Yuba City | <business>`. Set per the SEO title sheet.
+   */
+  metaTitle?: string;
   intro: string;
   heroPhoto: string;
   /** Headline price band above the CTAs. Omit when ranges aren't confirmed. */
@@ -47,144 +53,10 @@ export type ServicePage = {
 };
 
 export const servicePages: Record<string, ServicePage> = {
-  "tree-removal": {
-    name: "Tree Removal",
-    title: "Tree removal in Yuba City",
-    intro:
-      "Hazard trees, storm damage, and removals over roofs, pools, and power lines. A certified arborist reads the tree and writes the rigging plan before a saw leaves the truck.",
-    heroPhoto: "Hero photo — removal in progress",
-    priceBand: {
-      prefix: "Most residential removals",
-      range: "$650 – $2,400",
-      suffix: "fixed, in writing",
-    },
-    trust: [
-      { icon: "shield", label: "Licensed & insured" },
-      { icon: "badge", label: "Locally owned" },
-      { icon: "stars", label: "5.0 star reviews" },
-    ],
-    triage: {
-      eyebrow: "When removal is the right call",
-      heading: "Not every bad-looking tree needs to come down",
-      intro:
-        "About a third of the trees we're called out for can be saved with pruning or cabling. We'll tell you when that's the case, even though it's the smaller job.",
-      bullets: [
-        {
-          dot: "bg-rust",
-          label: "Remove now",
-          body: "root plate lifting, trunk cavity or major decay, more than a third of the crown dead, or a lean that has moved recently.",
-        },
-        {
-          dot: "bg-gold",
-          label: "Prune or cable",
-          body: "split leaders, limbs over the roof, storm-broken branches, clearance from service drops.",
-        },
-        {
-          dot: "bg-sage-deep",
-          label: "Monitor",
-          body: "surface roots, minor deadwood, seasonal leaf drop, sap or mess complaints.",
-        },
-      ],
-    },
-    pricing: {
-      heading: "What it costs",
-      intro:
-        "Ranges for Yuba City properties. Your written estimate is fixed once we've seen the site.",
-      rows: [
-        { label: "Small tree — under 30 ft", price: "$450 – $900" },
-        { label: "Medium tree — 30 to 60 ft", price: "$900 – $1,800" },
-        { label: "Large or crane-assisted — 60 ft+", price: "$1,800 – $4,500" },
-        { label: "Stump grinding add-on", price: "from $95" },
-      ],
-    },
-    inclusions: {
-      eyebrow: "Every removal includes",
-      heading: "One price, nothing added after the fact",
-      items: [
-        {
-          title: "Rigged takedown",
-          body: "Sectional dismantling with ropes and lowering devices — nothing free-falls onto your yard.",
-        },
-        {
-          title: "Property protection",
-          body: "Plywood over walkways, mats on lawns, pool and irrigation covered before we start.",
-        },
-        {
-          title: "Full haul-away",
-          body: "Brush chipped, wood cut to rounds or hauled, driveway and gutters blown clean.",
-        },
-        {
-          title: "Permits handled",
-          body: "We check the city and county ordinance for your parcel and pull the permit if one applies.",
-        },
-      ],
-    },
-    timeline: {
-      eyebrow: "The day of",
-      heading: "What a removal actually looks like",
-      steps: [
-        {
-          time: "7:30 AM",
-          title: "Walk and set up",
-          body: "Crew lead walks the plan with you, sets drop zones, and protects surfaces.",
-        },
-        {
-          time: "8:00 AM",
-          title: "Climb and rig",
-          body: "Limbs come off in sections, roped down to a groundsman, never dropped.",
-        },
-        {
-          time: "Midday",
-          title: "Trunk down",
-          body: "Stem lowered in manageable pieces, or lifted out by crane on tight lots.",
-        },
-        {
-          time: "Before we leave",
-          title: "Cleanup and walkthrough",
-          body: "Site raked and blown, then you sign off before the trucks pull out.",
-        },
-      ],
-    },
-    gallery: {
-      heading: "Removals around Yuba City",
-      photos: [
-        "Before — hazard tree",
-        "Crane lift over roofline",
-        "After — cleared and raked",
-      ],
-    },
-    faqs: [
-      {
-        question: "Do I need a permit to remove a tree in Yuba City?",
-        answer:
-          "Private-property trees generally don't require one, but street trees, heritage trees, and some HOA and county parcels do. We check your address and pull the permit if it applies.",
-      },
-      {
-        question: "Can you get equipment into a tight backyard?",
-        answer:
-          "Usually yes. Narrow-track lifts fit through a 36-inch gate, and where nothing fits we climb and rig by hand or lift the tree out by crane from the street.",
-      },
-      {
-        question: "Is the stump included?",
-        answer:
-          "Removal leaves a low-cut stump. Grinding is quoted separately from $95 so you can decide — we go 8 to 12 inches below grade and rake the site flat for replanting.",
-      },
-      {
-        question: "Will my insurance cover a storm-damaged tree?",
-        answer:
-          "Often, when the tree hit a structure or blocks access. We photograph and document everything for the claim at no charge and bill the insurer directly when they allow it.",
-      },
-    ],
-    cta: {
-      heading: "Send us a photo, get a price",
-      body: "Free written estimate, same day in most cases. No sales visit unless you want one.",
-    },
-    bannerPrefix: "Tree down or leaning on a structure? Skip the form — call",
-  },
-
   "tree-trimming": {
     name: "Tree Trimming",
-    title: "Tree trimming and pruning in Yuba City",
+    title: "Tree Trimming & Cutting - Free Estimates",
+    metaTitle: "Tree Trimming in Yuba City, CA - Free Estimates",
     intro:
       "Structural pruning, crown thinning, deadwooding, and clearance from roofs and utility lines. Every cut is made to a growth point, so the tree closes the wound instead of responding with weak regrowth.",
     heroPhoto: "Hero photo — arborist pruning a mature canopy",
@@ -304,7 +176,8 @@ export const servicePages: Record<string, ServicePage> = {
 
   "stump-grinding": {
     name: "Stump Grinding",
-    title: "Stump grinding in Yuba City",
+    title: "Professional Stump Grinding in Yuba City, CA",
+    metaTitle: "Stump Grinding in Yuba City, CA - Free Estimates",
     intro:
       "Ground 8 to 12 inches below grade with surface roots chased, then backfilled and raked flat so you can replant, re-sod, or pour over it. We grind stumps we removed and stumps someone else left behind.",
     heroPhoto: "Hero photo — grinder working a large stump",
