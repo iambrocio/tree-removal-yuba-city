@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ImagePlaceholder } from "../../components/image-placeholder";
 import { SiteFooter } from "../../components/site-footer";
 import { SiteHeader } from "../../components/site-header";
-import { canonical } from "../../seo";
+import { pageMeta } from "../../seo";
 import { business } from "../../site-content";
 import { servicePages, type ServicePage } from "../services-data";
 
@@ -23,11 +23,11 @@ export async function generateMetadata({
   const service = servicePages[slug];
   if (!service) return {};
 
-  return {
-    ...canonical(`/services/${slug}`),
-    title: `${service.name} in Yuba City | ${business.name}`,
-    description: service.intro,
-  };
+  return pageMeta(
+    `/services/${slug}`,
+    `${service.name} in Yuba City | ${business.name}`,
+    service.intro,
+  );
 }
 
 export default async function ServicePageRoute({ params }: PageProps) {
