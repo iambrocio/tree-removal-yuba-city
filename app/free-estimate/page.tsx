@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { pageMeta } from "../seo";
-import { EstimateForm } from "../components/estimate-form";
+import { EstimateFormEmbed } from "../components/estimate-form-embed";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 import { business, estimatePage } from "../site-content";
@@ -41,7 +41,7 @@ export default function FreeEstimatePage() {
             ))}
           </ul>
 
-          <EstimateForm />
+          <EstimateFormEmbed />
         </div>
 
         <aside className="flex flex-col gap-4.5 lg:sticky lg:top-8">
