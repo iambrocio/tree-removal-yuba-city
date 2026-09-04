@@ -10,6 +10,8 @@
  * half-generic filler.
  */
 
+import { photos, type Photo } from "../photos";
+
 export type AreaBullet = {
   /** Tailwind background class for the leading dot. */
   dot: string;
@@ -34,7 +36,7 @@ export type AreaPage = {
   responseBadge: string;
   intro: string;
   reviewNote: string;
-  heroPhoto: string;
+  heroPhoto: Photo;
   stats: { value: string; label: string }[];
   local: {
     eyebrow: string;
@@ -51,7 +53,7 @@ export type AreaPage = {
   };
   neighborhoods: string[];
   testimonial: { quote: string; author: string };
-  gallery: string[];
+  gallery: Photo[];
   faqs: { question: string; answer: string }[];
   ctaHeading: string;
   /** City names; linked when that city has its own entry below. */
@@ -68,7 +70,7 @@ export const areaPages: Record<string, AreaPage> = {
     intro:
       "We're just across the Feather River from downtown. Certified arborists for hazard removals, storm damage, and the mature valley oaks and cottonwoods that dominate older Marysville lots.",
     reviewNote: "5.0 star reviews",
-    heroPhoto: "Marysville job photo — crew working a mature tree",
+    heroPhoto: photos.bucketTruckPineDriveway,
     stats: [
       { value: "Local", label: "Crews from our yard" },
       { value: "340+", label: "Marysville jobs" },
@@ -154,9 +156,9 @@ export const areaPages: Record<string, AreaPage> = {
       author: "Marcus T. — Marysville, 95901",
     },
     gallery: [
-      "Before — cottonwood near the levee",
-      "Climbed removal, historic district",
-      "After — cleared and raked",
+      photos.backyardTreeBefore,
+      photos.chipperStreetRemoval,
+      photos.backyardClearedAfter,
     ],
     faqs: [
       {

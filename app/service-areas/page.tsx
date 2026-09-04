@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { pageMeta } from "../seo";
 import Link from "next/link";
-import { ImagePlaceholder } from "../components/image-placeholder";
+import { photos } from "../photos";
+import { SitePhoto } from "../components/site-photo";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 import { business, serviceAreasPage } from "../site-content";
@@ -243,8 +244,11 @@ function LocalKnowledge() {
             ))}
           </ul>
         </div>
-        <div className="h-[300px] overflow-hidden rounded-3xl sm:h-[380px] lg:h-[460px]">
-          <ImagePlaceholder label="Local job photo — crew working a valley property" />
+        <div className="relative h-[300px] overflow-hidden rounded-3xl sm:h-[380px] lg:h-[460px]">
+          <SitePhoto
+            photo={photos.frontYardTrimmedOaks}
+            sizes="(min-width: 1024px) 46vw, 100vw"
+          />
         </div>
       </div>
     </section>

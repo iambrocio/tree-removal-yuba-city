@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import ownerPhoto from "../public/tree-boss-owner.webp";
-import stormDamagePhoto from "../public/1.webp";
-import bucketTruckPhoto from "../public/3.webp";
-import trimmingPhoto from "../public/7.webp";
-import stumpGrindingPhoto from "../public/stump-grinding.webp";
 import serviceAreaMap from "../public/service-area-map.webp";
-import { ImagePlaceholder } from "./components/image-placeholder";
+import { photos } from "./photos";
+import { SitePhoto } from "./components/site-photo";
 import { SiteFooter } from "./components/site-footer";
 import { canonical } from "./seo";
 import { SiteHeader } from "./components/site-header";
@@ -112,14 +108,10 @@ function Hero() {
       </div>
 
       <div className="relative h-[340px] overflow-hidden rounded-[28px] sm:h-[440px] lg:h-[552px]">
-        <Image
-          src={ownerPhoto}
-          alt="Tree Boss owner on site in Yuba City"
-          fill
-          loading="eager"
-          fetchPriority="high"
+        <SitePhoto
+          photo={photos.ownerOnSite}
           sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover"
+          priority
         />
       </div>
     </section>
@@ -151,7 +143,7 @@ function Services() {
           Services
         </div>
         <h2 className="mx-auto max-w-[700px] text-[32px] leading-[1.1] font-bold tracking-[-0.03em] text-ink sm:text-[38px] lg:text-[44px]">
-          Everything a tree needs, from one licensed crew
+          Tree Removal Services &amp; More
         </h2>
       </div>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -194,15 +186,18 @@ function WhyUs() {
       className={`${GUTTER} scroll-mt-4 bg-forest py-20 text-cream lg:py-22`}
     >
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-[72px]">
-        <div className="h-[300px] overflow-hidden rounded-3xl sm:h-[380px] lg:h-[440px]">
-          <ImagePlaceholder label="Arborist climbing — canopy shot" />
+        <div className="relative h-[300px] overflow-hidden rounded-3xl sm:h-[380px] lg:h-[440px]">
+          <SitePhoto
+            photo={photos.oakCanopyFromBucket}
+            sizes="(min-width: 1024px) 46vw, 100vw"
+          />
         </div>
         <div>
           <div className="mb-3.5 text-[12.5px] uppercase tracking-[0.16em] text-sage">
             Why us
           </div>
           <h2 className="mb-5 text-[32px] leading-[1.1] font-bold tracking-[-0.03em] sm:text-[38px] lg:text-[42px]">
-            A certified arborist runs the job, not just the sales call
+            Locally Owned &amp; Licensed Tree Company in Yuba City, CA
           </h2>
           <p className="mb-8 text-[16.5px] leading-[1.66] text-pretty text-sage-pale sm:text-[17.5px]">
             Plenty of outfits bid a removal from the curb. We put a credentialed
@@ -263,41 +258,32 @@ function Gallery() {
           Full gallery →
         </a>
       </div>
-      <div className="grid grid-cols-2 gap-[18px] lg:grid-cols-[1.4fr_1fr_1fr] lg:grid-rows-[200px_200px]">
-        <div className="relative col-span-2 h-[220px] overflow-hidden rounded-[22px] lg:col-span-1 lg:row-span-2 lg:h-auto">
-          <Image
-            src={bucketTruckPhoto}
-            alt="Tree Boss bucket truck beside a pine cut into rounds"
-            fill
+      {/* One photo per row on phones — the mosaic's short paired cells crop a
+          portrait job photo down to an unreadable strip. The tiles only take
+          fixed heights once the mosaic itself kicks in at lg. */}
+      <div className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] lg:grid-rows-[200px_200px]">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] sm:col-span-2 sm:aspect-[16/9] lg:col-span-1 lg:row-span-2 lg:aspect-auto">
+          <SitePhoto
+            photo={photos.bucketTruckBoomInCanopy}
             sizes="(min-width: 1024px) 40vw, 100vw"
-            className="object-cover"
           />
         </div>
-        <div className="relative h-[150px] overflow-hidden rounded-[22px] lg:h-auto">
-          <Image
-            src={stormDamagePhoto}
-            alt="Wind-thrown tree resting on a backyard shed, root plate lifted out of the ground"
-            fill
-            sizes="(min-width: 1024px) 22vw, 50vw"
-            className="object-cover"
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] lg:aspect-auto">
+          <SitePhoto
+            photo={photos.stormDamage}
+            sizes="(min-width: 1024px) 22vw, (min-width: 640px) 50vw, 100vw"
           />
         </div>
-        <div className="relative h-[150px] overflow-hidden rounded-[22px] lg:h-auto">
-          <Image
-            src={trimmingPhoto}
-            alt="Front-yard tree cut back to its main leaders during a heavy reduction"
-            fill
-            sizes="(min-width: 1024px) 22vw, 50vw"
-            className="object-cover"
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] lg:aspect-auto">
+          <SitePhoto
+            photo={photos.frontYardTrimmedOaks}
+            sizes="(min-width: 1024px) 22vw, (min-width: 640px) 50vw, 100vw"
           />
         </div>
-        <div className="relative col-span-2 h-[150px] overflow-hidden rounded-[22px] lg:col-span-2 lg:h-auto">
-          <Image
-            src={stumpGrindingPhoto}
-            alt="Stump ground flush in a side yard with the chips raked out"
-            fill
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] sm:col-span-2 sm:aspect-[16/9] lg:aspect-auto">
+          <SitePhoto
+            photo={photos.bucketTruckPineDriveway}
             sizes="(min-width: 1024px) 44vw, 100vw"
-            className="object-cover"
           />
         </div>
       </div>
@@ -359,7 +345,7 @@ function Faq() {
           FAQ
         </div>
         <h2 className="text-[32px] leading-[1.1] font-bold tracking-[-0.03em] text-ink sm:text-[38px] lg:text-[42px]">
-          Straight answers before you book
+          Tree Removal &amp; Services FAQ
         </h2>
       </div>
       <div className="mx-auto flex max-w-[900px] flex-col gap-3.5">

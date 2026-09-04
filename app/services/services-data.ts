@@ -7,6 +7,8 @@
  * confirmed rather than shipping invented ones.
  */
 
+import { photos, type Photo } from "../photos";
+
 export type ServiceBullet = { dot: string; label: string; body: string };
 
 export type ServicePage = {
@@ -20,7 +22,7 @@ export type ServicePage = {
    */
   metaTitle?: string;
   intro: string;
-  heroPhoto: string;
+  heroPhoto: Photo;
   /** Headline price band above the CTAs. Omit when ranges aren't confirmed. */
   priceBand?: { prefix: string; range: string; suffix: string };
   trust: { icon: "shield" | "clock" | "badge" | "stars"; label: string }[];
@@ -46,7 +48,7 @@ export type ServicePage = {
     heading: string;
     steps: { time: string; title: string; body: string }[];
   };
-  gallery: { heading: string; photos: string[] };
+  gallery: { heading: string; photos: Photo[] };
   faqs: { question: string; answer: string }[];
   cta: { heading: string; body: string };
   bannerPrefix: string;
@@ -59,7 +61,7 @@ export const servicePages: Record<string, ServicePage> = {
     metaTitle: "Tree Trimming in Yuba City, CA - Free Estimates",
     intro:
       "Structural pruning, crown thinning, deadwooding, and clearance from roofs and utility lines. Every cut is made to a growth point, so the tree closes the wound instead of responding with weak regrowth.",
-    heroPhoto: "Hero photo — arborist pruning a mature canopy",
+    heroPhoto: photos.bucketTruckBoomInCanopy,
     // priceBand and pricing intentionally omitted — see the note in the summary.
     trust: [
       { icon: "shield", label: "Licensed & insured" },
@@ -140,9 +142,9 @@ export const servicePages: Record<string, ServicePage> = {
     gallery: {
       heading: "Trimming around Yuba City",
       photos: [
-        "Before — overgrown canopy on a roof",
-        "Climber thinning a valley oak",
-        "After — lifted and cleared",
+        photos.backyardTreeBefore,
+        photos.heavyReduction,
+        photos.frontYardTrimmedOaks,
       ],
     },
     faqs: [
@@ -180,7 +182,7 @@ export const servicePages: Record<string, ServicePage> = {
     metaTitle: "Stump Grinding in Yuba City, CA - Free Estimates",
     intro:
       "Ground 8 to 12 inches below grade with surface roots chased, then backfilled and raked flat so you can replant, re-sod, or pour over it. We grind stumps we removed and stumps someone else left behind.",
-    heroPhoto: "Hero photo — grinder working a large stump",
+    heroPhoto: photos.stumpGround,
     priceBand: {
       prefix: "Stump grinding",
       range: "from $95",
@@ -265,9 +267,9 @@ export const servicePages: Record<string, ServicePage> = {
     gallery: {
       heading: "Stump grinding around Yuba City",
       photos: [
-        "Before — stump left by another crew",
-        "Grinder mid-pass",
-        "After — backfilled and raked flat",
+        photos.chipperStreetRemoval,
+        photos.bucketTruckPine,
+        photos.backyardClearedAfter,
       ],
     },
     faqs: [
