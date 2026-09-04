@@ -3,6 +3,8 @@ import { pageMeta } from "../seo";
 import { EstimateFormEmbed } from "../components/estimate-form-embed";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+import { photos } from "../photos";
+import { SitePhoto } from "../components/site-photo";
 import { business, estimatePage } from "../site-content";
 
 const GUTTER = "px-5 sm:px-8 lg:px-14";
@@ -80,6 +82,13 @@ export default function FreeEstimatePage() {
                 </li>
               ))}
             </ol>
+          </div>
+
+          <div className="relative h-[220px] overflow-hidden rounded-[22px]">
+            <SitePhoto
+              photo={photos.prunedTreePoolside}
+              sizes="(min-width: 1024px) 380px, 100vw"
+            />
           </div>
 
           <figure className="m-0 rounded-[22px] bg-white px-7 py-6.5">

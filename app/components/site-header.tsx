@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import logoMark from "../../public/logo-mark.png";
 import { business, headerNavLinks, layout, type NavLink } from "../site-content";
 
 type SiteHeaderProps = {
@@ -49,9 +51,12 @@ export function SiteHeader({
             href={homeHref}
             className="flex shrink-0 items-center gap-3 lg:justify-self-start"
           >
-            <span className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-forest text-[18px] font-bold text-cream">
-              T
-            </span>
+            <Image
+              src={logoMark}
+              alt=""
+              priority
+              className="h-[42px] w-auto shrink-0"
+            />
             <span className="flex flex-col leading-[1.15]">
               <span className="text-[16px] font-bold tracking-[-0.025em] text-ink sm:text-[18px]">
                 {business.name}

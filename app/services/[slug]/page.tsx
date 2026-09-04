@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ImagePlaceholder } from "../../components/image-placeholder";
+import { SitePhoto } from "../../components/site-photo";
 import { SiteFooter } from "../../components/site-footer";
 import { SiteHeader } from "../../components/site-header";
 import { pageMeta } from "../../seo";
@@ -130,8 +130,12 @@ function Hero({ service }: { service: ServicePage }) {
         </ul>
       </div>
 
-      <div className="h-[340px] overflow-hidden rounded-[28px] sm:h-[440px] lg:h-[560px]">
-        <ImagePlaceholder label={service.heroPhoto} />
+      <div className="relative h-[340px] overflow-hidden rounded-[28px] sm:h-[440px] lg:h-[560px]">
+        <SitePhoto
+          photo={service.heroPhoto}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          priority
+        />
       </div>
     </section>
   );
@@ -275,14 +279,17 @@ function Gallery({ service }: { service: ServicePage }) {
         </Link>
       </div>
       <div className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
-        {service.gallery.photos.map((label, index) => (
+        {service.gallery.photos.map((photo, index) => (
           <div
-            key={label}
-            className={`h-[220px] overflow-hidden rounded-[22px] sm:h-[260px] ${
+            key={photo.src.src}
+            className={`relative aspect-[4/3] overflow-hidden rounded-[22px] sm:aspect-auto sm:h-[260px] ${
               index === 2 ? "sm:col-span-2 lg:col-span-1" : ""
             }`}
           >
-            <ImagePlaceholder label={label} />
+            <SitePhoto
+              photo={photo}
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            />
           </div>
         ))}
       </div>

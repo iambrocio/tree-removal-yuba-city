@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# full-resolution source photos (optimized webp copies live in public/)
+assets/photo-originals/

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ImagePlaceholder } from "../../components/image-placeholder";
+import { SitePhoto } from "../../components/site-photo";
 import { SiteFooter } from "../../components/site-footer";
 import { SiteHeader } from "../../components/site-header";
 import { pageMeta } from "../../seo";
@@ -130,8 +130,12 @@ function Hero({ area }: { area: AreaPage }) {
         </div>
 
         <div className="flex flex-col gap-3.5">
-          <div className="h-[280px] overflow-hidden rounded-3xl bg-sand sm:h-[360px] lg:h-[400px]">
-            <ImagePlaceholder label={area.heroPhoto} />
+          <div className="relative h-[280px] overflow-hidden rounded-3xl bg-sand sm:h-[360px] lg:h-[400px]">
+            <SitePhoto
+              photo={area.heroPhoto}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              priority
+            />
           </div>
           <div className="grid grid-cols-3 gap-3.5">
             {area.stats.map((stat) => (
@@ -333,14 +337,17 @@ function Gallery({ area }: { area: AreaPage }) {
         </Link>
       </div>
       <div className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
-        {area.gallery.map((label, index) => (
+        {area.gallery.map((photo, index) => (
           <div
-            key={label}
-            className={`h-[220px] overflow-hidden rounded-[22px] sm:h-[260px] ${
+            key={photo.src.src}
+            className={`relative aspect-[4/3] overflow-hidden rounded-[22px] sm:aspect-auto sm:h-[260px] ${
               index === 2 ? "sm:col-span-2 lg:col-span-1" : ""
             }`}
           >
-            <ImagePlaceholder label={label} />
+            <SitePhoto
+              photo={photo}
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            />
           </div>
         ))}
       </div>

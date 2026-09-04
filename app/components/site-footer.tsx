@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import logoMarkCream from "../../public/logo-mark-cream.png";
 import { areaPages } from "../service-areas/areas-data";
 import { business, services } from "../site-content";
 
@@ -41,9 +43,7 @@ export function SiteFooter() {
       <div className="grid gap-10 border-b border-[rgba(246,242,232,.14)] pb-11 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-14">
         <div>
           <Link href="/" className="mb-4.5 flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gold text-[17px] font-bold text-[#241d0c]">
-              T
-            </span>
+            <Image src={logoMarkCream} alt="" className="h-10 w-auto" />
             <span className="text-[18px] font-bold tracking-[-0.02em] text-cream">
               {business.name}
             </span>
