@@ -65,9 +65,10 @@ function Hero() {
         </h2>
 
         <p className="mx-auto mb-6 max-w-[500px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px] lg:mx-0">
-          Affordable tree removal in Yuba City, CA, plus trimming, stump
-          grinding, and 24/7 storm response across the valley. A licensed
-          arborist assesses the tree before any tree work begins.
+          We offer affordable tree removal in Yuba City, CA, with a licensed
+          arborist providing an assessment and free estimate before any work
+          begins. Call today to get a clear price and schedule your tree
+          removal.
         </p>
 
         <ul className="mb-7 flex flex-wrap justify-center gap-x-4 gap-y-2 text-[13.5px] text-[#3c4737] sm:gap-x-6 sm:text-[14.5px] lg:justify-start">
@@ -418,7 +419,7 @@ function ServiceAreas() {
         <div className="relative h-[260px] overflow-hidden rounded-[20px] bg-cream lg:h-[340px]">
           <Image
             src={serviceAreaMap}
-            alt="Map of the service area around Yuba City, covering Yuba, Sutter, and neighboring counties"
+            alt="Map of the service area around Yuba City, reaching from Colusa and Gridley east to Grass Valley and south to Nicolaus"
             fill
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-contain"
