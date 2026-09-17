@@ -175,6 +175,88 @@ export const faqs = [
   },
 ];
 
+/** A run of copy with inline links; plain strings render as text. */
+export type RichText = (string | { label: string; href: string })[];
+
+/**
+ * Long-form copy on the homepage. Like the FAQ, every claim here must already
+ * be made somewhere else on the site — this section explains the promises, it
+ * doesn't add new ones. No prices or response times: those live in one place
+ * each so they can't drift.
+ */
+export const homeContent = {
+  eyebrow: "Tree removal in Yuba City",
+  heading: "Our tree removal process",
+  intro: [
+    "We start our tree removals by understanding your needs. We like to start by asking: does the tree need to come down, or can it still be saved?",
+    "We help homeowners across Yuba City and surrounding areas figure out what is going on with the tree, what the removal will involve, and what it will cost.",
+  ],
+  sections: [
+    {
+      heading: "When a Tree Should Come Down",
+      body: [
+        [
+          "A tree may need to be removed when it is dead or dying, leaning toward a home, splitting at a major union, dropping large limbs, or showing signs of root failure.",
+        ],
+        [
+          "Hot summers in Yuba City can also put added stress on older trees. Large valley oaks can drop heavy limbs during hot weather, while cottonwoods growing closer to waterways may become unstable after saturated soil or high water.",
+        ],
+        [
+          "Not every problem tree needs to be removed. When trimming can safely extend the life of the tree, we will tell you and provide a quote for ",
+          { label: "tree trimming", href: "/services/tree-trimming" },
+          " instead.",
+        ],
+      ],
+    },
+    {
+      heading: "How We Remove Trees Safely",
+      body: [
+        [
+          "Trees often need to be removed one section at a time to avoid roofs, fences, pools, vehicles, landscaping, and utility lines.",
+        ],
+        [
+          "Before work begins, we look at the tree's lean, condition, surrounding structures, access points, and where each section can safely be lowered. From there, we determine the right removal method and provide a clear price for the job.",
+        ],
+      ],
+    },
+    {
+      heading: "Permits, HOAs, and Street Trees",
+      body: [
+        [
+          "Permit requirements can depend on where the tree is located and who has control over the property. Trees along streets, within HOA communities, or on certain county-managed properties may have additional rules.",
+        ],
+        [
+          "When a permit or HOA approval applies to the job, we can help identify the requirements and provide proof of insurance to your HOA or property manager when needed.",
+        ],
+      ],
+    },
+    {
+      heading: "What Tree Removal Cleanup Includes",
+      body: [
+        [
+          "Once the tree is down, the job is not finished. Tree removal includes chipping and hauling away branches and wood, followed by cleanup of the work area, driveway, and surrounding yard.",
+        ],
+        [
+          "The stump is handled separately. Our ",
+          { label: "stump grinding", href: "/services/stump-grinding" },
+          " service can grind the remaining stump below ground level so the area can be covered with soil, replanted, or prepared for new landscaping.",
+        ],
+      ],
+    },
+    {
+      heading: "Storm Damage and Emergency Tree Removal",
+      body: [
+        [
+          "Strong winds and damaged trees do not always wait for business hours. If a tree falls on a home, vehicle, driveway, or another structure, call us directly so we can assess the situation.",
+        ],
+        [
+          "Emergency tree removal focuses first on making the property safer and preventing additional damage. We can also photograph and document visible tree damage that may be needed for an insurance claim.",
+        ],
+      ],
+    },
+  ] satisfies { heading: string; body: RichText[] }[],
+};
+
 export const estimatePage = {
   promises: [
     "Free, no obligation",

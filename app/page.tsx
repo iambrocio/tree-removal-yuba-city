@@ -11,6 +11,7 @@ import {
   business,
   faqs,
   heroProof,
+  homeContent,
   processSteps,
   serviceAreas,
   services,
@@ -33,6 +34,7 @@ export default function Home() {
         <WhyUs />
         <Process />
         <Gallery />
+        <HomeContent />
         <ServiceAreas />
         <Faq />
         <FinalCta />
@@ -63,9 +65,10 @@ function Hero() {
         </h2>
 
         <p className="mx-auto mb-6 max-w-[500px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px] lg:mx-0">
-          Affordable tree removal in Yuba City, CA, plus trimming, stump
-          grinding, and 24/7 storm response across the valley. A licensed
-          arborist assesses the tree before any tree work begins.
+          We offer affordable tree removal in Yuba City, CA, with a licensed
+          arborist providing an assessment and free estimate before any work
+          begins. Call today to get a clear price and schedule your tree
+          removal.
         </p>
 
         <ul className="mb-7 flex flex-wrap justify-center gap-x-4 gap-y-2 text-[13.5px] text-[#3c4737] sm:gap-x-6 sm:text-[14.5px] lg:justify-start">
@@ -291,6 +294,96 @@ function Gallery() {
   );
 }
 
+function HomeContent() {
+  return (
+    <section className={`${GUTTER} bg-white py-20 lg:py-22`}>
+      <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16">
+        <article className="max-w-[760px]">
+          <div className="mb-3.5 text-[12.5px] uppercase tracking-[0.16em] text-sage-deep">
+            {homeContent.eyebrow}
+          </div>
+          <h2 className="mb-5 text-[30px] leading-[1.1] font-bold tracking-[-0.03em] text-balance text-ink sm:text-[36px] lg:text-[40px]">
+            {homeContent.heading}
+          </h2>
+          <div className="mb-10 flex flex-col gap-4">
+            {homeContent.intro.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="text-[17px] leading-[1.66] text-pretty text-moss sm:text-[18px]"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+          <div className="flex flex-col gap-8">
+            {homeContent.sections.map((section) => (
+              <div key={section.heading}>
+                <h3 className="mb-2.5 text-[20px] font-bold tracking-[-0.02em] text-ink sm:text-[22px]">
+                  {section.heading}
+                </h3>
+                <div className="flex flex-col gap-3.5">
+                  {section.body.map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className="text-[16px] leading-[1.7] text-pretty text-moss sm:text-[16.5px]"
+                    >
+                      {paragraph.map((part) =>
+                        typeof part === "string" ? (
+                          part
+                        ) : (
+                          <Link
+                            key={part.href}
+                            href={part.href}
+                            className="font-medium text-forest underline underline-offset-2 hover:text-ink"
+                          >
+                            {part.label}
+                          </Link>
+                        ),
+                      )}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <aside className="flex flex-col gap-4.5 lg:sticky lg:top-8">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] lg:aspect-[4/5]">
+            <SitePhoto
+              photo={photos.chipperStreetRemoval}
+              sizes="(min-width: 1024px) 380px, 100vw"
+            />
+          </div>
+          <div className="rounded-[22px] bg-sand p-7">
+            <div className="mb-2 text-[18px] font-bold tracking-[-0.02em] text-ink">
+              Not sure it needs to come down?
+            </div>
+            <p className="mb-5 text-[14.5px] leading-[1.6] text-moss">
+              We&apos;ll look at the tree and tell you straight — free, with a
+              fixed price if it does.
+            </p>
+            <div className="flex flex-col gap-2.5">
+              <a
+                href={business.phoneHref}
+                className="rounded-full bg-forest px-6 py-3.5 text-center text-[15.5px] font-bold text-cream hover:bg-ink"
+              >
+                Call {business.phone}
+              </a>
+              <Link
+                href="/free-estimate"
+                className="rounded-full border-[1.5px] border-line-strong bg-cream px-6 py-3.5 text-center text-[15.5px] font-semibold text-ink hover:bg-white"
+              >
+                Get a free estimate
+              </Link>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
 function ServiceAreas() {
   return (
     <section id="areas" className={`${GUTTER} scroll-mt-4 pb-20 lg:pb-22`}>
@@ -326,7 +419,7 @@ function ServiceAreas() {
         <div className="relative h-[260px] overflow-hidden rounded-[20px] bg-cream lg:h-[340px]">
           <Image
             src={serviceAreaMap}
-            alt="Map of the service area around Yuba City, covering Yuba, Sutter, and neighboring counties"
+            alt="Map of the service area around Yuba City, reaching from Colusa and Gridley east to Grass Valley and south to Nicolaus"
             fill
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-contain"
