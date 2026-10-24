@@ -1,3 +1,5 @@
+import type { ServiceCard } from "./components/service-cards";
+
 export const business = {
   name: "Tree Removal Yuba City",
   phone: "(530) 845-1134",
@@ -67,12 +69,7 @@ export const removalPricingRows = [
   { label: "Stump grinding add-on", price: "from $95" },
 ];
 
-export const services: {
-  number: string;
-  title: string;
-  body: string;
-  href?: string;
-}[] = [
+export const services: ServiceCard[] = [
   {
     number: "01",
     title: "Tree Removal",
@@ -178,6 +175,15 @@ export const faqs = [
 /** A run of copy with inline links; plain strings render as text. */
 export type RichText = (string | { label: string; href: string })[];
 
+/** Long-form copy rendered by `ContentSection`. */
+export type LongFormContent = {
+  eyebrow: string;
+  heading: string;
+  intro: string[];
+  /** `id` makes a subsection linkable, e.g. `/#storm-damage`. */
+  sections: { heading: string; id?: string; body: RichText[] }[];
+};
+
 /**
  * Long-form copy on the homepage. Like the FAQ, every claim here must already
  * be made somewhere else on the site — this section explains the promises, it
@@ -245,6 +251,8 @@ export const homeContent = {
     },
     {
       heading: "Storm Damage and Emergency Tree Removal",
+      // Linked from the hub's Emergency Services card, which has no page.
+      id: "storm-damage",
       body: [
         [
           "Strong winds and damaged trees do not always wait for business hours. If a tree falls on a home, vehicle, driveway, or another structure, call us directly so we can assess the situation.",
@@ -254,8 +262,8 @@ export const homeContent = {
         ],
       ],
     },
-  ] satisfies { heading: string; body: RichText[] }[],
-};
+  ],
+} satisfies LongFormContent;
 
 export const estimatePage = {
   promises: [

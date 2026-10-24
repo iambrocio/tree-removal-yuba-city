@@ -7,7 +7,9 @@
  * confirmed rather than shipping invented ones.
  */
 
+import type { ServiceCard } from "../components/service-cards";
 import { photos, type Photo } from "../photos";
+import type { LongFormContent } from "../site-content";
 
 export type ServiceBullet = { dot: string; label: string; body: string };
 
@@ -53,6 +55,19 @@ export type ServicePage = {
   cta: { heading: string; body: string };
   bannerPrefix: string;
 };
+
+/** The fields the hero and page shell read, for pages that are only a hero. */
+export type ServiceHeroContent = Pick<
+  ServicePage,
+  | "name"
+  | "title"
+  | "metaTitle"
+  | "intro"
+  | "heroPhoto"
+  | "priceBand"
+  | "trust"
+  | "bannerPrefix"
+>;
 
 export const servicePages: Record<string, ServicePage> = {
   "tree-trimming": {
@@ -305,4 +320,131 @@ export const servicePages: Record<string, ServicePage> = {
     },
     bannerPrefix: "Need a stump gone before a project starts? Call",
   },
+};
+
+/**
+ * The `/tree-service-yuba-city` hub — hero only. It lives outside
+ * `servicePages` so it doesn't also render at `/services/<slug>`.
+ *
+ * It targets "tree service", not "tree removal": that keyword belongs to the
+ * homepage, which is why `/services/tree-removal` was retired.
+ */
+export const treeServicePage: ServiceHeroContent = {
+  name: "Tree Service",
+  title: "Tree Service in Yuba City, CA",
+  metaTitle: "Tree Service in Yuba City, CA - Free Estimates",
+  intro:
+    "We provide professional tree service in Yuba City, including tree removal, trimming, pruning, stump grinding, and emergency tree services.",
+  heroPhoto: photos.bucketTruckPineDriveway,
+  trust: [
+    { icon: "shield", label: "Licensed & insured" },
+    { icon: "badge", label: "Locally owned" },
+    { icon: "stars", label: "5.0 star reviews" },
+  ],
+  bannerPrefix: "Tree down after a storm? Call",
+};
+
+/**
+ * "Tree Services We Offer" on the hub. Removal links to the homepage, which
+ * owns that keyword; emergency work has no page of its own yet, so it links
+ * to the storm section of the homepage's long-form copy.
+ */
+export const treeServiceOfferings: ServiceCard[] = [
+  {
+    number: "01",
+    title: "Tree Removal",
+    body: "Dead, dying, and leaning trees taken down in sections around roofs, fences, and lines. Brush chipped and hauled, site left clean.",
+    href: "/",
+  },
+  {
+    number: "02",
+    title: "Stump Grinding",
+    body: "Ground 8 to 12 inches below grade with surface roots chased, then backfilled and raked flat for replanting.",
+    href: "/services/stump-grinding",
+  },
+  {
+    number: "03",
+    title: "Tree Trimming",
+    body: "Structural pruning, crown thinning, deadwooding, and clearance from roofs and utility lines.",
+    href: "/services/tree-trimming",
+  },
+  {
+    number: "04",
+    title: "Emergency Services",
+    body: "Emergency lines answered 24/7 for trees on houses, vehicles, or driveways, with damage documented for your insurance claim.",
+    href: "/#storm-damage",
+  },
+];
+
+/**
+ * Long-form copy on the hub. Like the homepage's, every claim here must already
+ * be made somewhere else on the site, and there are no prices or response
+ * times. Plain text only: the service cards above already link out.
+ */
+export const treeServiceContent: LongFormContent = {
+  eyebrow: "Tree service in Yuba City",
+  heading: "Tree care for Yuba City homes and properties",
+  intro: [
+    "Every tree service job starts with the same question: what does this tree actually need? Sometimes that is a removal, but often it is a careful trim, a stump ground out, or simply leaving the tree alone.",
+    "We are a locally owned, licensed and insured crew serving Yuba City and the surrounding valley. An arborist looks at the tree, explains the options, and gives you a written, fixed price before any work begins.",
+  ],
+  sections: [
+    {
+      heading: "Choosing the Right Tree Service",
+      body: [
+        [
+          "A tree that is dead, splitting, or leaning toward the house may need to come down. A tree that is crowding the roof, dropping deadwood, or growing into a line can usually be pruned instead.",
+        ],
+        [
+          "We will tell you which one your tree needs, and when trimming can safely extend its life, that is what we will quote.",
+        ],
+      ],
+    },
+    {
+      heading: "Tree Trimming and Pruning",
+      body: [
+        [
+          "Our tree trimming covers structural pruning, crown thinning, deadwooding, and clearance from roofs and utility lines. Every cut is made at a branch collar or a lateral that can take over, so the tree closes the wound instead of pushing out weak regrowth.",
+        ],
+        [
+          "We don't top trees. Most species do best pruned in late winter dormancy, and we avoid heavy summer cuts on oaks.",
+        ],
+      ],
+    },
+    {
+      heading: "Tree Removal",
+      body: [
+        [
+          "When a tree does need to come down, it is usually taken apart one section at a time so nothing lands on roofs, fences, pools, or vehicles. Brush is chipped, wood is hauled or stacked, and the yard is cleaned up before we leave.",
+        ],
+      ],
+    },
+    {
+      heading: "Stump Grinding",
+      body: [
+        [
+          "A removal leaves a stump behind, and that is quoted separately. Stump grinding takes it 8 to 12 inches below grade with surface roots chased out, then the hole is backfilled and raked flat so you can replant or re-sod.",
+        ],
+        [
+          "We file the USA North 811 ticket and wait for utilities to be marked before any grinding starts.",
+        ],
+      ],
+    },
+    {
+      heading: "Emergency Tree Services",
+      body: [
+        [
+          "Emergency lines are answered 24/7. Trees on houses, vehicles, or blocking access are triaged first, and we photograph and document the damage for your insurance claim at no charge.",
+        ],
+      ],
+    },
+    {
+      heading: "Serving Yuba City and Nearby Areas",
+      body: [
+        [
+          "Our home base is Yuba City, and we also work across Yuba and Sutter County, including Marysville, Linda, Olivehurst, Plumas Lake, and Live Oak.",
+        ],
+      ],
+    },
+  ],
 };

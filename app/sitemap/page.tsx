@@ -32,9 +32,14 @@ function buildSections(): Section[] {
     },
     {
       heading: "Services",
-      links: services
-        .filter((service) => service.href)
-        .map((service) => ({ label: service.title, href: service.href! })),
+      // The hub isn't one of the homepage service cards, so it's listed
+      // here by hand ahead of the per-service pages.
+      links: [
+        { label: "Tree Service", href: "/tree-service-yuba-city" },
+        ...services
+          .filter((service) => service.href)
+          .map((service) => ({ label: service.title, href: service.href! })),
+      ],
     },
     {
       heading: "Service Areas",
