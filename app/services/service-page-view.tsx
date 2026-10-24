@@ -74,7 +74,13 @@ function Hero({
 }) {
   return (
     <section
-      className={`${GUTTER} grid items-center gap-10 pb-6 pt-8 lg:grid-cols-[minmax(0,560px)_minmax(0,1fr)] lg:gap-14`}
+      className={`${GUTTER} grid items-center gap-10 pb-6 pt-8 lg:gap-14 ${
+        // The small photo gets a 60/40 split rather than a capped width, so
+        // it fills its column instead of leaving a gap beside the copy.
+        photoSize === "small"
+          ? "lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]"
+          : "lg:grid-cols-[minmax(0,560px)_minmax(0,1fr)]"
+      }`}
     >
       <div>
         {breadcrumb && (
@@ -97,7 +103,11 @@ function Hero({
         <h1 className="mb-4 text-[38px] leading-[1.04] font-bold tracking-[-0.038em] text-balance text-ink sm:text-[46px] lg:text-[58px] lg:leading-[1.02]">
           {service.title}
         </h1>
-        <p className="mb-6 max-w-[510px] text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px]">
+        <p
+          className={`mb-6 text-[17px] leading-[1.6] text-pretty text-[#4d5947] sm:text-[18.5px] ${
+            photoSize === "small" ? "max-w-[620px]" : "max-w-[510px]"
+          }`}
+        >
           {service.intro}
         </p>
 
@@ -148,7 +158,7 @@ function Hero({
       <div
         className={`relative overflow-hidden rounded-[28px] ${
           photoSize === "small"
-            ? "h-[260px] sm:h-[340px] lg:h-[420px] lg:w-full lg:max-w-[520px] lg:justify-self-end"
+            ? "h-[260px] sm:h-[340px] lg:h-[420px]"
             : "h-[340px] sm:h-[440px] lg:h-[560px]"
         }`}
       >
