@@ -212,6 +212,11 @@ export const homeContent = {
           { label: "tree trimming", href: "/services/tree-trimming" },
           " instead.",
         ],
+        [
+          "For everything else we do beyond removals, see our ",
+          { label: "tree service Yuba City", href: "/tree-service-yuba-city" },
+          " page.",
+        ],
       ],
     },
     {
